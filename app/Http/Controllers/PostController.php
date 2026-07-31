@@ -34,11 +34,13 @@ class PostController extends Controller
 
         $path = $request->file('image')->store('posts', 'public'); //Path storage/app/public/posts
 
-        Auth::user()->posts()->create([
-            'caption'    => $validated['caption'] ?? null,
+        /** @var \App\Models\User $user */
+        $user = Auth::user();
+
+        $user->posts()->create([
+            'caption' => $validated['caption'] ?? null,
             'image_path' => $path,
         ]);
-
         return redirect()->route('posts.index')->with('status', 'Post berhasil dibuat!');
     }
 
