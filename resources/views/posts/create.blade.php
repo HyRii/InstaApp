@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-6 max-w-md mx-auto">
-    <h2 class="font-semibold text-lg mb-4">Buat Post Baru</h2>
+    <h2 class="font-semibold text-lg mb-4">Make a New Post</h2>
 
     <form method="POST" action="{{ route('posts.store') }}" enctype="multipart/form-data" class="space-y-4">
         @csrf
