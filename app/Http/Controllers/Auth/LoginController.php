@@ -22,7 +22,7 @@ class LoginController extends Controller
 
         if (!Auth::attempt($credentials, $request->boolean('remember'))) {
             return back()->withErrors([
-                'email' => 'Email atau password salah.',
+                'email' => 'Oops, It seems like your email or password is wrong, please remember it again...',
             ])->onlyInput('email');
         }
 
@@ -36,6 +36,6 @@ class LoginController extends Controller
         $request->session()->invalidate();
         $request->session()->regenerateToken();
 
-        return redirect()->route('login');
+        return redirect()->route('posts.index');
     }
 }
